@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Calories Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .stats-bar {
+            background: #f8f9fa;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500);
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .add-meal-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .add-meal-section h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        .meal-form {
+            display: grid;
+            grid-template-columns: 2fr 1fr auto;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .meals-list {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .meals-list h2 {
+            padding: 20px 25px;
+            margin: 0;
+            background: #f8f9fa;
+            color: #333;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .meal-item {
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .meal-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .meal-item:last-child {
+            border-bottom: none;
+        }
+
+        .meal-info {
+            flex: 1;
+        }
+
+        .meal-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .meal-details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .meal-calories {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+
+        .empty-state {
+            padding: 40px 25px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        .goal-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .goal-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .goal-input input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100px;
+        }
+
+        .goal-input button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .meal-form {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            
+            .meal-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍎 Daily Calories Tracker</h1>
+            <p>Track your meals and reach your daily goals</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCalories">0</div>
+                <div class="stat-label">Calories Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="mealsCount">0</div>
+                <div class="stat-label">Meals Logged</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="remainingCalories">2000</div>
+                <div class="stat-label">Remaining</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="goal-section">
+                <h3>Daily Calorie Goal</h3>
+                <div class="goal-input">
+                    <span>My daily goal:</span>
+                    <input type="number" id="calorieGoal" value="2000" min="500" max="5000">
+                    <span>calories</span>
+                    <button onclick="updateGoal()">Update</button>
+                </div>
+            </div>
+
+            <div class="add-meal-section">
+                <h2>Add New Meal</h2>
+                <div class="meal-form">
+                    <div class="form-group">
+                        <label for="mealName">Meal Name</label>
+                        <input type="text" id="mealName" placeholder="e.g., Chicken Salad">
+                    </div>
+                    <div class="form-group">
+                        <label for="calories">Calories</label>
+                        <input type="number" id="calories" placeholder="350" min="1">
+                    </div>
+                    <button class="add-btn" onclick="addMeal()">Add Meal</button>
+                </div>
+            </div>
+
+            <div class="meals-list">
+                <h2>Today's Meals</h2>
+                <div id="mealsList">
+                    <div class="empty-state">
+                        No meals logged yet. Add your first meal above!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let meals = [];
+        let dailyGoal = 2000;
+
+        function updateStats() {
+            const totalCalories = meals.reduce((sum, meal) => sum + meal.calories, 0);
+            const mealsCount = meals.length;
+            const remaining = Math.max(0, dailyGoal - totalCalories);
+            const progress = Math.min(100, (totalCalories / dailyGoal) * 100);
+
+            document.getElementById('totalCalories').textContent = totalCalories;
+            document.getElementById('mealsCount').textContent = mealsCount;
+            document.getElementById('remainingCalories').textContent = remaining;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            // Change color if over goal
+            const remainingElement = document.getElementById('remainingCalories');
+            if (totalCalories > dailyGoal) {
+                remainingElement.style.color = '#dc3545';
+                remainingElement.textContent = '+' + (totalCalories - dailyGoal);
+                remainingElement.nextElementSibling.textContent = 'Over Goal';
+            } else {
+                remainingElement.style.color = '#ff6b6b';
+                remainingElement.nextElementSibling.textContent = 'Remaining';
+            }
+        }
+
+        function renderMeals() {
+            const mealsList = document.getElementById('mealsList');
+            
+            if (meals.length === 0) {
+                mealsList.innerHTML = '<div class="empty-state">No meals logged yet. Add your first meal above!</div>';
+                return;
+            }
+
+            mealsList.innerHTML = meals.map((meal, index) => `
+                <div class="meal-item">
+                    <div class="meal-info">
+                        <div class="meal-name">${meal.name}</div>
+                        <div class="meal-details">Added at ${meal.time}</div>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <div class="meal-calories">${meal.calories} cal</div>
+                        <button class="delete-btn" onclick="deleteMeal(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addMeal() {
+            const nameInput = document.getElementById('mealName');
+            const caloriesInput = document.getElementById('calories');
+            
+            const name = nameInput.value.trim();
+            const calories = parseInt(caloriesInput.value);
+
+            if (!name || !calories || calories <= 0) {
+                alert('Please enter a valid meal name and calorie count!');
+                return;
+            }
+
+            const meal = {
+                name: name,
+                calories: calories,
+                time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+            };
+
+            meals.push(meal);
+            
+            // Clear inputs
+            nameInput.value = '';
+            caloriesInput.value = '';
+            
+            // Update display
+            updateStats();
+            renderMeals();
+        }
+
+        function deleteMeal(index) {
+            meals.splice(index, 1);
+            updateStats();
+            renderMeals();
+        }
+
+        function updateGoal() {
+            const goalInput = document.getElementById('calorieGoal');
+            const newGoal = parseInt(goalInput.value);
+            
+            if (newGoal && newGoal >= 500 && newGoal <= 5000) {
+                dailyGoal = newGoal;
+                updateStats();
+            } else {
+                alert('Please enter a valid goal between 500 and 5000 calories!');
+            }
+        }
+
+        // Allow Enter key to add meals
+        document.getElementById('mealName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addMeal();
+        });
+        
+        document.getElementById('calories').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addMeal();
+        });
+
+        // Initialize
+        updateStats();
+        renderMeals();
+    </script>
+</body>
+</html>

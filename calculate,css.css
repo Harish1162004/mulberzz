@@ -1,0 +1,68 @@
+.calorie-calculator {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.calorie-calculator .container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#calorie-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+#calorie-form input,
+#calorie-form button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#calorie-form input {
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#calorie-form button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#calorie-form button:hover {
+  background-color: #d32f2f;
+}
+
+#calorie-list {
+  list-style: none;
+  padding: 0;
+}
+
+#calorie-list li {
+  background-color: #e0e0e0;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#calorie-list li button {
+  background: transparent;
+  border: none;
+  color: #d32f2f;
+  font-weight: bold;
+  cursor: pointer;
+}

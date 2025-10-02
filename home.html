@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator - Home</title>
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="./images/dumble.png" type="image/x-icon">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+      <div id="preloader"></div>
+    <div class="nav">  
+             <nav>
+            <div class="logo">
+              <img src="./images/icon.png" alt="logo">
+              <h1>BMI FITNESS</h1>
+            </div>
+            <ul>
+              <li>
+                <a href="#">HOME</a>
+              </li>
+              <li>
+                <a href="services.html">SERVICES</a>
+              </li>
+              <li>
+                <a href="malediet.html">FEMALE DIET PLAN</a>
+              </li>
+              <li>
+                <a href="diet-plan-female.html">MALE DIET PLAN</a>
+              </li>
+              <li>
+                <a href="contact.html">CONTACT US</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </nav>
+          <div class="menubar">
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>      
+    </div></div>
+
+
+    <div class="blue-shape"></div>
+    <div class="hero-section">
+        <div class="text-side">
+            <a href="#" id="logo"><img src="./images/dumble.png" alt=""></a>
+            <h1>BODY MASS INDEX CALCULATOR</h1>
+            <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. 
+                While BMI is not the sole determinant of a healthy weight, 
+                it offers a valuable starting point to evaluate your overall health and well-being.</p>
+        </div>
+
+        <div class="form-side" id="form-side">
+            <h3>ENTER YOUR DETAILS BELOW </h3>
+            <form class="radios">
+                <div class="container">
+                    <input type="radio" id="Metric" value="Metric" name="radio-value" checked>
+                    <label class="label-radio" for="Metric">METRIC</label>
+                </div>
+                <div class="container">
+                    <input type="radio" id="Imperial" value="Imperial" name="radio-value">
+                    <label class="label-radio" for="Imperial">IMPERIAL</label>
+                </div>
+            </form>
+
+            <form class="metric-unit" id="metric-unit">
+                <div class="metric-container">
+                    <label class="lab-unit" for="m-height">HEIGHT</label>
+                    <input type="number" name="metric-value" id="m-height" placeholder="0">
+                    <span class="unit">cm</span>
+                </div>
+                <div class="metric-container">
+                    <label class="lab-unit" for="m-weight">WEIGHT</label>
+                    <input type="number" name="metric-value" id="m-weight" placeholder="0">
+                    <span class="unit">kg</span>
+                </div>
+            </form>
+
+            <form class="imperial-unit">
+                <div class="imp-container">
+                    <label class="lab-unit" for="ft">HEIGHT</label>
+                    <div class="field-imp">
+                        <div>
+                            <input type="number" class="Height" name="imperial-value" placeholder="0" id="ft">
+                            <span class="unit ft">ft</span>
+                        </div>
+                        <div>
+                            <input type="number" class="Height" placeholder="0" name="imperial-value" id="inch">
+                            <span class="unit in">in</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="imp-container">
+                    <label class="lab-unit" for="st">WEIGHT</label>
+                    <div class="field-imp">
+                        <div>
+                            <input type="number" name="imperial-value" class="Weight" placeholder="0" id="st">
+                            <span class="unit st">st</span>
+                        </div>
+                        <div>
+                            <input type="number" name="imperial-value" class="Weight" placeholder="0" id="lbs">
+                            <span class="unit lbs">lbs</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="result">
+                <div class="welcome" id="welcome">
+                    <h3>WELCOME!</h3>
+                    <p>Enter your height and weight and you’ll see your BMI result here</p>
+                </div>
+                <div class="result-number" id="result-numb">
+                    <p id="your-BMI">Your BMI is...</p>
+                    <span id="result-BMI">00</span>
+                </div>
+                <div class="result-body-cont" id="result-body">
+                    <p id="result-body">Your BMI suggests you’re a <span id="range-bmi">healthy weight</span>. Your ideal weight is between <span id="result-min-weight">9st 6lbs</span>  - 
+                    <span id="result-max-weight">12st 10lbs.</span></p>
+                </div>
+            </div>
+
+            <div class="container">
+        <div class="header">
+            <h1>CaloriTrack Pro</h1>
+            <p>Advanced Nutrition Tracking & Personalized Meal Planning</p>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2>Personal Information</h2>
+                
+                <div class="form-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" min="16" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" min="140" max="220" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" min="40" max="200" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">Activity Level</label>
+                    <select id="activity" required>
+                        <option value="">Select Activity Level</option>
+                        <option value="1.2">Sedentary (little/no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                        <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                        <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                        <option value="1.9">Extremely active (very hard exercise, physical job)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="goal">Goal</label>
+                    <select id="goal" required>
+                        <option value="">Select Your Goal</option>
+                        <option value="lose">Lose Weight (deficit 500 cal/day)</option>
+                        <option value="maintain">Maintain Weight</option>
+                        <option value="gain">Gain Weight (surplus 500 cal/day)</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="calculateResults()">Calculate & Get Recommendations</button>
+            </div>
+
+            <div class="results-section">
+                <h2>Your Results</h2>
+                <div id="results" class="hidden">
+                    <div class="calorie-info">
+                        <h3>Daily Nutrition Targets</h3>
+                        <div class="calorie-number" id="calorieTarget">0</div>
+                        <p style="text-align: center; margin-top: 10px;">calories per day</p>
+                        
+                        <div class="macro-breakdown">
+                            <div class="macro-item">
+                                <h4>Protein</h4>
+                                <div class="macro-value" id="proteinTarget">0g</div>
+                            </div>
+                            <div class="macro-item">
+                                <h4>Carbs</h4>
+                                <div class="macro-value" id="carbsTarget">0g</div>
+                            </div>
+                            <div class="macro-item">
+                                <h4>Fats</h4>
+                                <div class="macro-value" id="fatsTarget">0g</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-categories" id="foodRecommendations">
+                        <!-- Food recommendations will be populated here -->
+                    </div>
+
+                    <div class="food-categories" id="exerciseRecommendations" style="margin-top: 30px;">
+                        <!-- Exercise recommendations will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+    
+            
+          <section class="cta">
+        <h1>FEMALE DIET FITNESS PLAN </h1>
+        <a href="malediet.html" class="hero-btn">EXPLORE MORE</a>
+        
+    </section>
+    <section class="cta-2">
+        <h1>MALE DIET FITNESS PLAN </h1>
+        <a href="diet-plan-female.html" class="hero-btn">EXPLORE MORE</a>
+        
+    </section>
+ 
+    
+  
+  
+  
+
+    <section class="vedio">
+        <center><h1>| WHAT IS BMI? | WHAT BMI DOESN'T TELL YOU ABOUT YOUR HEALTH? |</h1></center>
+        <br>
+       <center> <iframe width="560" height="315" src="https://www.youtube.com/embed/ts3zesSyGDI?si=_dEikvESNIM1U69n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/z_3S2_41_FE?si=_UI7H-3-DLicyQjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center></section>
+       </section>
+    </main>
+
+       <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>BMI</span> FITNESS
+                </span>
+                <p>Everybody Worry about their <strong>EMI</strong>but
+                    I'm Worry about my <strong>BMI</strong></p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Useful Links</div>
+                <ul>
+                    <li>Sign In</li>
+                    <li>About Us</li>
+                    <li>Male Diet Plan</li>
+                    <li>Female Diet Plan</li>
+                    <li>Terms and Conditions</li>
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Help</div>
+                <ul>
+                    <li>Help Me</li>
+                    <li>Feedback</li>
+                    <li>Report a Issue / Bug</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://api.web3forms.com/submit" method="post" class="space-y-2">
+                    <input type="hidden" name="access_key" value="2d0f22e5-c5a9-4c11-82db-b1d62a55c30e">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'>Copyright &copy; 2024 | Made by PURU FITNESS</div>
+    </footer>
+
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load",function(){
+        loader.style.display="none";
+      })
+
+      // Food database
+        const foods = {
+            breakfast: [
+                { name: "Steel Cut Oatmeal with Berries", calories: 250, protein: 8, carbs: 45, fats: 4, description: "High fiber, antioxidants, sustained energy" },
+                { name: "Greek Yogurt Parfait", calories: 200, protein: 20, carbs: 15, fats: 8, description: "Protein rich, probiotics, calcium" },
+                { name: "Scrambled Eggs with Spinach", calories: 180, protein: 14, carbs: 2, fats: 13, description: "High protein, healthy fats, iron" },
+                { name: "Whole Grain Avocado Toast", calories: 320, protein: 8, carbs: 30, fats: 18, description: "Complex carbs, healthy fats, fiber" }
+            ],
+            lunch: [
+                { name: "Grilled Chicken Caesar Salad", calories: 350, protein: 35, carbs: 10, fats: 20, description: "Lean protein, vitamins, healthy fats" },
+                { name: "Quinoa Power Bowl", calories: 400, protein: 15, carbs: 55, fats: 14, description: "Complete protein, complex carbs, minerals" },
+                { name: "Turkey & Hummus Wrap", calories: 320, protein: 25, carbs: 35, fats: 12, description: "Lean protein, fiber, plant-based fats" },
+                { name: "Salmon Poke Bowl", calories: 450, protein: 30, carbs: 40, fats: 22, description: "Omega-3, complete amino acids" }
+            ],
+            dinner: [
+                { name: "Baked Cod with Sweet Potato", calories: 300, protein: 30, carbs: 25, fats: 8, description: "Lean fish, complex carbs, beta-carotene" },
+                { name: "Grilled Chicken with Quinoa", calories: 350, protein: 35, carbs: 30, fats: 12, description: "High protein, complete amino acids" },
+                { name: "Vegetarian Black Bean Chili", calories: 280, protein: 15, carbs: 45, fats: 6, description: "Plant protein, fiber, antioxidants" },
+                { name: "Lean Beef Stir Fry", calories: 380, protein: 28, carbs: 20, fats: 22, description: "Iron, protein, mixed vegetables" }
+            ],
+            snacks: [
+                { name: "Apple with Almond Butter", calories: 190, protein: 6, carbs: 20, fats: 12, description: "Fiber, healthy fats, vitamin E" },
+                { name: "Mixed Nuts (1 oz)", calories: 170, protein: 6, carbs: 6, fats: 15, description: "Healthy fats, protein, minerals" },
+                { name: "Greek Yogurt with Honey", calories: 120, protein: 15, carbs: 12, fats: 2, description: "Protein, probiotics, natural sugars" },
+                { name: "Hummus with Vegetables", calories: 120, protein: 5, carbs: 12, fats: 6, description: "Fiber, plant protein, vitamins" }
+            ]
+        };
+
+        // Exercise database
+        const exercises = {
+            lose: {
+                cardio: [
+                    { name: "Brisk Walking", duration: "30-45 minutes", frequency: "5-6 days/week", calories: "200-300 per session", description: "Low impact, joint-friendly, sustainable" },
+                    { name: "Running/Jogging", duration: "20-30 minutes", frequency: "3-4 days/week", calories: "300-450 per session", description: "High calorie burn, improves cardiovascular health" },
+                    { name: "Cycling", duration: "30-45 minutes", frequency: "4-5 days/week", calories: "250-400 per session", description: "Low impact, builds leg strength" },
+                    { name: "Swimming", duration: "30-40 minutes", frequency: "3-4 days/week", calories: "300-450 per session", description: "Full body workout, easy on joints" }
+                ],
+                strength: [
+                    { name: "Bodyweight Squats", sets: "3 sets", reps: "12-15 reps", rest: "60 seconds", description: "Targets legs and glutes, burns calories" },
+                    { name: "Push-ups (modified if needed)", sets: "3 sets", reps: "8-12 reps", rest: "60 seconds", description: "Upper body strength, core stability" },
+                    { name: "Lunges", sets: "3 sets", reps: "10 per leg", rest: "60 seconds", description: "Unilateral leg strength, balance" },
+                    { name: "Plank", sets: "3 sets", reps: "30-60 seconds", rest: "60 seconds", description: "Core strength, full body stability" },
+                    { name: "Burpees", sets: "3 sets", reps: "5-8 reps", rest: "90 seconds", description: "Full body, high intensity, fat burning" }
+                ]
+            },
+            maintain: {
+                cardio: [
+                    { name: "Moderate Walking", duration: "30 minutes", frequency: "4-5 days/week", calories: "150-250 per session", description: "Maintain cardiovascular health" },
+                    { name: "Light Jogging", duration: "20-25 minutes", frequency: "3 days/week", calories: "200-300 per session", description: "Steady state cardio for maintenance" },
+                    { name: "Dancing", duration: "30-45 minutes", frequency: "2-3 days/week", calories: "200-350 per session", description: "Fun, social, improves coordination" },
+                    { name: "Yoga", duration: "45-60 minutes", frequency: "2-3 days/week", calories: "150-250 per session", description: "Flexibility, balance, stress relief" }
+                ],
+                strength: [
+                    { name: "Bodyweight Squats", sets: "3 sets", reps: "10-12 reps", rest: "60 seconds", description: "Maintain leg strength" },
+                    { name: "Push-ups", sets: "3 sets", reps: "8-10 reps", rest: "60 seconds", description: "Maintain upper body strength" },
+                    { name: "Deadlifts (light weight)", sets: "3 sets", reps: "8-10 reps", rest: "90 seconds", description: "Posterior chain, functional strength" },
+                    { name: "Plank", sets: "2 sets", reps: "45 seconds", rest: "60 seconds", description: "Core maintenance" },
+                    { name: "Resistance Band Rows", sets: "3 sets", reps: "10-12 reps", rest: "60 seconds", description: "Back strength, posture" }
+                ]
+            },
+            gain: {
+                cardio: [
+                    { name: "Light Walking", duration: "20-30 minutes", frequency: "3-4 days/week", calories: "100-150 per session", description: "Recovery, cardiovascular health without excessive burn" },
+                    { name: "Low Intensity Cycling", duration: "20-30 minutes", frequency: "2-3 days/week", calories: "150-200 per session", description: "Active recovery, leg circulation" },
+                    { name: "Swimming (easy pace)", duration: "25-35 minutes", frequency: "2 days/week", calories: "200-250 per session", description: "Low impact, muscle recovery" }
+                ],
+                strength: [
+                    { name: "Squats (weighted)", sets: "4 sets", reps: "6-8 reps", rest: "2-3 minutes", description: "Build leg mass and strength" },
+                    { name: "Deadlifts", sets: "4 sets", reps: "5-6 reps", rest: "3 minutes", description: "Overall mass builder, posterior chain" },
+                    { name: "Bench Press", sets: "4 sets", reps: "6-8 reps", rest: "2-3 minutes", description: "Chest, shoulders, triceps development" },
+                    { name: "Pull-ups/Rows", sets: "4 sets", reps: "6-10 reps", rest: "2-3 minutes", description: "Back width and thickness" },
+                    { name: "Overhead Press", sets: "3 sets", reps: "6-8 reps", rest: "2-3 minutes", description: "Shoulder development, core stability" },
+                    { name: "Dips", sets: "3 sets", reps: "8-12 reps", rest: "2 minutes", description: "Triceps, chest, pushing strength" }
+                ]
+            }
+        };
+
+        // Main calculation function
+        function calculateResults() {
+            console.log('Button clicked!');
+            
+            // Get form values
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const height = parseInt(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+            const goal = document.getElementById('goal').value;
+
+            console.log('Values:', { age, gender, height, weight, activity, goal });
+
+            // Validate inputs
+            if (!age || !gender || !height || !weight || !activity || !goal) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            // Calculate BMR
+            let bmr;
+            if (gender === 'male') {
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            } else {
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            }
+
+            // Calculate TDEE
+            let tdee = bmr * activity;
+
+            // Adjust for goal
+            let targetCalories;
+            if (goal === 'lose') {
+                targetCalories = tdee - 500;
+            } else if (goal === 'gain') {
+                targetCalories = tdee + 500;
+            } else {
+                targetCalories = tdee;
+            }
+
+            // Calculate macros
+            const protein = Math.round((targetCalories * 0.25) / 4);
+            const carbs = Math.round((targetCalories * 0.45) / 4);
+            const fats = Math.round((targetCalories * 0.30) / 9);
+
+            console.log('Results:', { targetCalories, protein, carbs, fats });
+
+            // Display results
+            document.getElementById('calorieTarget').textContent = Math.round(targetCalories);
+            document.getElementById('proteinTarget').textContent = protein + 'g';
+            document.getElementById('carbsTarget').textContent = carbs + 'g';
+            document.getElementById('fatsTarget').textContent = fats + 'g';
+
+            // Show results
+            document.getElementById('results').classList.remove('hidden');
+
+            // Show food recommendations
+            showFoodRecommendations();
+
+            // Show exercise recommendations
+            showExerciseRecommendations(goal);
+        }
+
+        function showFoodRecommendations() {
+            const container = document.getElementById('foodRecommendations');
+            container.innerHTML = '';
+
+            const categories = [
+                { name: 'breakfast', icon: '🌅', title: 'Breakfast' },
+                { name: 'lunch', icon: '☀️', title: 'Lunch' },
+                { name: 'dinner', icon: '🌙', title: 'Dinner' },
+                { name: 'snacks', icon: '🥜', title: 'Snacks' }
+            ];
+
+            categories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'food-category';
+                
+                let foodItems = '';
+                foods[category.name].forEach(food => {
+                    foodItems += `
+                        <div class="food-item">
+                            <h5>${food.name}</h5>
+                            <div class="calories">${food.calories} calories</div>
+                            <div class="macros">P: ${food.protein}g | C: ${food.carbs}g | F: ${food.fats}g</div>
+                            <p>${food.description}</p>
+                        </div>
+                    `;
+                });
+
+                categoryDiv.innerHTML = `
+                    <h4>${category.icon} ${category.title}</h4>
+                    <div class="food-items">
+                        ${foodItems}
+                    </div>
+                `;
+
+                container.appendChild(categoryDiv);
+            });
+        }
+
+        function showExerciseRecommendations(goal) {
+            const container = document.getElementById('exerciseRecommendations');
+            container.innerHTML = '';
+
+            const exerciseData = exercises[goal];
+            if (!exerciseData) return;
+
+            // Cardio section
+            const cardioDiv = document.createElement('div');
+            cardioDiv.className = 'food-category';
+            cardioDiv.style.borderLeftColor = '#ff6b6b';
+            
+            let cardioItems = '';
+            exerciseData.cardio.forEach(exercise => {
+                cardioItems += `
+                    <div class="food-item" style="border-left: 3px solid #ff6b6b;">
+                        <h5>${exercise.name}</h5>
+                        <div class="calories" style="color: #ff6b6b;">${exercise.duration} | ${exercise.frequency}</div>
+                        <div class="macros">Burns: ${exercise.calories}</div>
+                        <p>${exercise.description}</p>
+                    </div>
+                `;
+            });
+
+            cardioDiv.innerHTML = `
+                <h4>🏃‍♀️ Cardio Exercises</h4>
+                <div class="food-items">
+                    ${cardioItems}
+                </div>
+            `;
+
+            // Strength section
+            const strengthDiv = document.createElement('div');
+            strengthDiv.className = 'food-category';
+            strengthDiv.style.borderLeftColor = '#4ecdc4';
+            
+            let strengthItems = '';
+            exerciseData.strength.forEach(exercise => {
+                strengthItems += `
+                    <div class="food-item" style="border-left: 3px solid #4ecdc4;">
+                        <h5>${exercise.name}</h5>
+                        <div class="calories" style="color: #4ecdc4;">${exercise.sets} × ${exercise.reps}</div>
+                        <div class="macros">Rest: ${exercise.rest}</div>
+                        <p>${exercise.description}</p>
+                    </div>
+                `;
+            });
+
+            strengthDiv.innerHTML = `
+                <h4>💪 Strength Training</h4>
+                <div class="food-items">
+                    ${strengthItems}
+                </div>
+            `;
+
+            // Add workout tips based on goal
+            const tipsDiv = document.createElement('div');
+            tipsDiv.className = 'food-category';
+            tipsDiv.style.borderLeftColor = '#45b7d1';
+
+            let tips = '';
+            if (goal === 'lose') {
+                tips = `
+                    <div class="food-item" style="border-left: 3px solid #45b7d1;">
+                        <h5>💡 Weight Loss Tips</h5>
+                        <div class="calories" style="color: #45b7d1;">Maximize Fat Burn</div>
+                        <p>• Combine cardio and strength training<br>
+                        • Do cardio 4-6 times per week<br>
+                        • Strength training 2-3 times per week<br>
+                        • Focus on compound movements<br>
+                        • Keep rest periods shorter for higher calorie burn</p>
+                    </div>
+                `;
+            } else if (goal === 'gain') {
+                tips = `
+                    <div class="food-item" style="border-left: 3px solid #45b7d1;">
+                        <h5>💡 Muscle Building Tips</h5>
+                        <div class="calories" style="color: #45b7d1;">Maximize Muscle Growth</div>
+                        <p>• Focus on progressive overload<br>
+                        • Strength training 4-5 times per week<br>
+                        • Limit cardio to maintain calories<br>
+                        • Use heavier weights, lower reps<br>
+                        • Rest 2-3 minutes between sets<br>
+                        • Prioritize compound movements</p>
+                    </div>
+                `;
+            } else {
+                tips = `
+                    <div class="food-item" style="border-left: 3px solid #45b7d1;">
+                        <h5>💡 Maintenance Tips</h5>
+                        <div class="calories" style="color: #45b7d1;">Stay Healthy & Fit</div>
+                        <p>• Balance cardio and strength training<br>
+                        • Exercise 4-5 times per week<br>
+                        • Focus on consistency over intensity<br>
+                        • Include flexibility and mobility work<br>
+                        • Listen to your body for recovery</p>
+                    </div>
+                `;
+            }
+
+            tipsDiv.innerHTML = `
+                <h4>🎯 Workout Strategy</h4>
+                <div class="food-items">
+                    ${tips}
+                </div>
+            `;
+
+            container.appendChild(cardioDiv);
+            container.appendChild(strengthDiv);
+            container.appendChild(tipsDiv);
+        }
+    </script>
+    
+    
+
+</body></html>
+
+
